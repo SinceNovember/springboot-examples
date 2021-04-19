@@ -1,0 +1,26 @@
+
+spring:
+  kafka:
+    listener:
+      type: batch
+    bootstrap-servers: 127.0.0.1:9093
+    consumer:
+      enable-auto-commit: false
+      auto-commit-interval: 100ms
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        session.timeout.ms: 15000
+      max-poll-records: 50
+
+
+
+
+kafka:
+  topic:
+    group-id: group-01
+    topic-name:
+      - testtopic
+      - testtopic1
+server:
+  port: 8089

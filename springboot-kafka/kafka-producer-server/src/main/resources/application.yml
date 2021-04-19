@@ -1,0 +1,20 @@
+
+spring:
+  kafka:
+    bootstrap-servers: 127.0.0.1:9093
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #开启自定义分区
+#      properties:
+#        partitioner:
+#          class: com.simple.kafka.config.CustomizePartitioner
+
+server:
+  port: 8088
+logging:
+  level:
+    root: INFO
