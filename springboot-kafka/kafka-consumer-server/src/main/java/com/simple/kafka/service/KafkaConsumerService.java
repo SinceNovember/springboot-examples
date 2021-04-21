@@ -25,6 +25,7 @@ public class KafkaConsumerService {
      * 在同一组中，保证topic中每个分区中的消息只会给组中一个消费者消费
      * 如果指定key的话，会根据hash值寻找分区
      * 不同的话会通过轮询的方法寻找分区
+	 * 注意：只要一个组连接过一次订阅过一次生产者后，才会把后面的离线数据发送过来。批量的话就可以一次消费多个，否则一次接受一个
      *
      * errorHandler: 因为开启了批量消费，所以这边会异常，调用consumerAwareListenerErrorHandler异常处理器
      * containerFactory:过滤只接受666666的数据
