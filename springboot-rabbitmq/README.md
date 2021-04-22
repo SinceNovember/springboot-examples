@@ -114,9 +114,11 @@ public class RabbitProduceTest {
 }
 ```
 效果如下图~
+
 ![image](https://segmentfault.com/img/remote/1460000023564863)
 
 同时在控制台使用命令rabbitmqctl.bat list_queues查看队列-erduo现在的情况：
+
 ![image](https://segmentfault.com/img/remote/1460000023564865)
 
 如此一来，我们的生产者测试就算完成了，现在消息队列里两条消息了，而且消息类型肯定不一样，一个是我们设置的文本类型，一个是自动设置的序列化类型。
@@ -151,6 +153,7 @@ public class RabbitConsumer {
 
 ### 4. 📖SpringBoot 启动！
 编写完生产者和消费者，同时已经运行过生产者往消息队列里面放了两条信息，接下来我们可以直接启动消息，查看消费情况：
+
 ![image](https://segmentfault.com/img/remote/1460000023564866)
 
 在我红色框线标记的地方可以看到，因为我们有了消费者所以项目启动后先和RabbitMQ建立了一个连接进行监听队列。
@@ -163,7 +166,7 @@ public class RabbitConsumer {
 
 不管怎么说，数据我们是拿到了，也就是代表我们的消费是没有问题的，同时也都进行了消息确认操作，从数据上看，整个消息可以分为两部分：body和MessageProperties。
 
-我们可以单独使用一个注解拿到这个body的内容 - @Payload
+我们可以单独使用一个注解拿到这个body的内容 - **@Payload**
 ```
 @RabbitListener(queues = Producer.QUEUE_NAME)
 public void onMessage(@Payload String body, Channel channel) throws Exception {
@@ -181,7 +184,9 @@ public void onMessage(@Payload String body, @Headers Map<String,Object> headers)
 这两个注解都算是扩展知识，我还是更喜欢直接拿到全部，全都要！！！
 
 上面我们已经完成了消息的发送与消费，整个过程我们可以再次回想一下，一切都和我画的这张图上一样的轨迹：
+
 ![image](https://segmentfault.com/img/remote/1460000023564866)
+
 只不过我们一直没有指定Exchage一直使用的默认路由，希望大家好好记住这张图。
 
 ### 5. 📘@RabbitListener与@RabbitHandler
@@ -226,7 +231,9 @@ public class RabbitConsumer {
 - 第二个方法的body类型是User类型，这就代表着这个方法只能处理序列化类型且为User类型的消息。
 
 这两个方法正好对应着我们第二节中测试类会发送的两种消息，所以我们往RabbitMQ中发送两条测试消息，用来测试这段代码，看看效果：
+
 ![image](https://segmentfault.com/img/remote/1460000023564866)
+
 都在控制台上如常打印了，如果@RabbitHandler注解的方法中没有一个的类型可以和你消息的类型对的上，比如消息都是byte数组类型，这里没有对应的方法去接收，系统就会在控制台不断的报错，如果你出现这个情况就证明你类型写的不正确。
 
 假设你的erduo队列中会出现三种类型的消息：byte，文本和序列化，那你就必须要有对应的处理这三种消息的方法，不然消息发过来的时候就会因为无法正确转换而报错。
@@ -252,6 +259,7 @@ public void onMessage(Message message, Channel channel) throws Exception {
 这样做可以完美解决上面的痛点：消息对象既不必再去实现Serializable接口，也有比较高的效率(Jackson序列化效率业界应该是最好的了)。
 
 默认的消息转换方案是消息转换顶层接口-MessageConverter的一个子类：SimpleMessageConverter，我们如果要换到另一个消息转换器只需要替换掉这个转换器就行了。
+
 ![image](https://segmentfault.com/img/remote/1460000023564869)
 
 上图是MessageConverter结构树的结构树，可以看到除了SimpleMessageConverter之外还有一个Jackson2JsonMessageConverter，我们只需要将它定义为Bean，就可以直接使用这个转换器了。
@@ -310,7 +318,9 @@ public class RabbitJsonConsumer {
 有了上文的经验之后，这段代码理解起来也是很简单了吧，同时给出了上一节没写的如何在@RabbitHandler模式下进行消息签收。
 
 我们直接来看看效果：
+
 ![image](https://segmentfault.com/img/remote/1460000023564867)
+
 ![image](https://segmentfault.com/img/remote/1460000023564870)
 
 在打印的Headers里面，往后翻可以看到contentType=application/json，这个contentType是表明了消息的类型，这里正是说明我们新的消息转换器生效了，将所有消息都转换成了JSON类型。
@@ -416,11 +426,13 @@ public class RabbitFanoutConsumer {
 代码的准备到此结束，我们可以运行发送方法之后run一下了~
 
 项目启动后，我们可以先来观察一下队列与交换机的绑定关系有没有生效，我们在RabbitMQ控制台使用rabbitmqctl list_bindings命令查看绑定关系。
+
 ![image](https://segmentfault.com/img/remote/1460000023684252)        
 
 关键部分我用红框标记了起来，这就代表着名叫fanoutExchange的交换机绑定着两个队列，一个叫fanout1，另一个叫fanout2。
 
 紧接着，我们来看控制台的打印情况：
+
 ![image](https://segmentfault.com/img/remote/1460000023684251)
 
 可以看到，一条信息发送出去之后，两个队列都接收到了这条消息，紧接着由我们的两个消费者消费。
@@ -589,8 +601,8 @@ public class RabbitTopicConsumer {
 
 }
 ```
-这里我们的生产者发送的消息routingKey是sms.liantong，它就会被发到topicQueue1队列中去，这里消息的routingKey也需要用.隔离开，用其他符号无法正确识别。
+这里我们的生产者发送的消息**routingKey**是**sms.liantong**，它就会被发到**topicQueue1**队列中去，这里消息的routingKey也需要用.隔离开，用其他符号无法正确识别。
 
-如果我们的routingKey是sms.123.liantong，那么它将无法找到对应的队列，因为topicQueue1的模糊匹配用的通配符是*而不是#，只有#是可以匹配多个单词的。
+如果我们的**routingKey**是**sms.123.liantong**，那么它将无法找到对应的队列，因为**topicQueue1**的模糊匹配用的通配符是*而不是#，只有#是可以匹配多个单词的。
 
 Topic-Exchange和Direct-Exchange很相似，我就不再赘述了，通配符*和#的区别也很简单，大家可以自己试一下。
