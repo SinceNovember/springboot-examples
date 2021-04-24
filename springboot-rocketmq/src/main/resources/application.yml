@@ -1,0 +1,11 @@
+rocketmq:
+  name-server: localhost:9876
+  tag: tagA
+  topic:
+    user: user-topic
+    string: string-topic
+  producer:
+    group: my-group
+  consumer:
+    group1: string-group
+    group2: user-group
