@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot-db-doc</artifactId>
+        <groupId>com.simple</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springboot-db-doc-screw-02</artifactId>
+    <description>maven插件方式导出数据文档</description>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>cn.smallbun.screw</groupId>
+                <artifactId>screw-maven-plugin</artifactId>
+                <version>1.0.5</version>
+                <dependencies>
+                    <!-- 数据库连接 -->
+                    <dependency>
+                        <groupId>com.zaxxer</groupId>
+                        <artifactId>HikariCP</artifactId>
+                        <version>3.4.5</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.22</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <!-- 数据库相关配置 -->
+                    <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+                    <jdbcUrl>jdbc:mysql://localhost:3306/db_blog?serverTimezone=GMT</jdbcUrl>
+                    <username>root</username>
+                    <password>Gepoint</password>
+                    <!-- screw 配置 -->
+                    <fileType>HTML</fileType>
+                    <title>数据库文档</title> <!--标题-->
+                    <fileName>测试文档名称</fileName> <!--文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称-->
+                    <description>数据库文档生成</description> <!--描述-->
+                    <version>${project.version}</version> <!--版本-->
+                    <openOutputDir>false</openOutputDir> <!--打开文件输出目录-->
+                    <produceType>freemarker</produceType> <!--生成模板-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

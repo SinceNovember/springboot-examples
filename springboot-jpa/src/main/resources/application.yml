@@ -1,0 +1,13 @@
+spring:
+  # datasource 数据源配置内容
+  datasource:
+    url: jdbc:mysql://localhost:3306/stu?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Gepoint
+  # JPA 配置内容，对应 JpaProperties 类
+  jpa:
+    show-sql: true # 打印 SQL 。生产环境，建议关闭
+    # Hibernate 配置内容，对应 HibernateProperties 类
+    hibernate:
+      ddl-auto: none

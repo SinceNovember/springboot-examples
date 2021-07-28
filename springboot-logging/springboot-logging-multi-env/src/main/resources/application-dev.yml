@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo-application # 应用名
+
+  # 日志级别
+  level:
+    com:
+      simple:
+        logging:
+          controller: DEBUG
+

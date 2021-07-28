@@ -21,7 +21,7 @@ public class ProducerService {
     private Logger log = LoggerFactory.getLogger(ProducerService.class);
 
     @Resource
-        private RocketMQTemplate mqTemplate;
+    private RocketMQTemplate mqTemplate;
 
     @Value(value = "${rocketmq.topic.string}")
     private String springTopic;

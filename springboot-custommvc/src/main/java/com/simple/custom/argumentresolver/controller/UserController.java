@@ -12,6 +12,7 @@ import java.util.Map;
 public class UserController {
     @RequestMapping(value = "/api/user", method = RequestMethod.POST)
     public void user(@UserId String userId, Integer test) {
+        System.out.println("234");
         System.out.println(userId);
     }
 }

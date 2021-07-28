@@ -1,0 +1,7 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev #单环境配置
+#    include: dev,uat  #多环境配置，优先排在后面的配置
