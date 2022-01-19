@@ -1,0 +1,19 @@
+application:
+  yml:
+spring:
+  redis:
+    lettuce:
+      pool:
+        # 连接池最大连接数(使用负值表示没有限制) 默认为8
+        max-active: 8
+        # 连接池中的最大空闲连接 默认为8
+        max-idle: 8
+        # 连接池最大阻塞等待时间(使用负值表示没有限制) 默认为-1
+        max-wait: -1ms
+        # 连接池中的最小空闲连接 默认为 0
+        min-idle: 0
+    sentinel:
+      # 主节点的别名
+      master: master
+      # sentinel服务的ip和端口
+      nodes: 192.168.126.200:16380,192.168.126.200:26380,192.168.126.200:36380
