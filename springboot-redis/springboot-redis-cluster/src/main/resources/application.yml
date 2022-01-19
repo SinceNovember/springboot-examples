@@ -1,0 +1,26 @@
+spring:
+  redis:
+#    host: 127.0.0.1
+#    port: 16379
+#    password: 123456
+    timeout: 30000
+    jedis:
+      pool:
+        max-active: 256
+        max-wait: 30000
+        max-idle: 64
+        min-idle: 32
+    lettuce:
+      pool:
+        max-active: 256
+        max-idle: 64
+        max-wait: 30000
+        min-idle: 32
+    cluster:
+      nodes:
+        - 127.0.0.1:6380
+        - 127.0.0.1:6381
+        - 127.0.0.1:6382
+        - 127.0.0.1:6390
+        - 127.0.0.1:6391
+        - 127.0.0.1:6392
