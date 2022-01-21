@@ -1,4 +1,4 @@
-package com.simple.canal.sync;
+package com.simple.canal.sync.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,8 +1,8 @@
-package com.simple.canal.sync.deploy;
+package com.simple.canal.sync.kafka.deploy;
 
 import com.alibaba.fastjson.JSONObject;
-import com.simple.canal.sync.model.CanalBean;
-import com.simple.canal.sync.model.TbCommodityInfo;
+import com.simple.canal.sync.kafka.model.TbCommodityInfo;
+import com.simple.canal.sync.kafka.model.CanalBean;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

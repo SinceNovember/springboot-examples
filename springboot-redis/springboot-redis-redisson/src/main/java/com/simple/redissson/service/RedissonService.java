@@ -123,6 +123,16 @@ public class RedissonService {
     }
 
     /**
+     * 获取公平锁 保证了当多个Redisson客户端线程同时请求加锁时，优先分配给先发出请求的线程
+     * @param objectName
+     * @return
+     */
+    public RLock getFairLock(String objectName) {
+        RLock fairLock = redissonClient.getFairLock("anyLock");
+        return fairLock;
+    }
+
+    /**
      * 获取原子数
      *
      * @param objectName

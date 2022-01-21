@@ -1,4 +1,4 @@
-package com.simple.canal.sync.deploy;
+package com.simple.canal.sync.rocketmq.redis;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;

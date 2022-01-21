@@ -1,4 +1,4 @@
-package com.simple.canal.sync.model;
+package com.simple.canal.sync.kafka.model;
 
 public class SqlType {
 
