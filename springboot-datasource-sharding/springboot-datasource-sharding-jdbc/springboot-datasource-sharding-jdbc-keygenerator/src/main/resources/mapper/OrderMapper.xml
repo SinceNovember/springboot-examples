@@ -13,6 +13,18 @@
         WHERE id = #{id}
     </select>
 
+    <select id="selectOrderList" resultType="OrderDO">
+        SELECT *
+        FROM ordersAtomicLongShardingKeyGenerator
+    </select>
+
+    <select id="selectListByUserId" parameterType="Integer" resultType="OrderDO">
+        SELECT
+        <include refid="FIELDS" />
+        FROM orders
+        WHERE user_id = #{userId}
+    </select>
+
     <insert id="insert" parameterType="OrderDO" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO orders (
             user_id

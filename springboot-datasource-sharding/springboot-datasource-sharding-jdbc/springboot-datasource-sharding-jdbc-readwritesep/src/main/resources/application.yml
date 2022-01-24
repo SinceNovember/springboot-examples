@@ -1,0 +1,51 @@
+spring:
+  # ShardingSphere 配置项
+  shardingsphere:
+    datasource:
+      # 所有数据源的名字
+      names: master0, slave0
+      # 订单 orders 数据源配置 00
+      master0:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/user_db_1?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: Gepoint
+      # 订单 orders 数据源配置 01
+      slave0:
+        type: com.zaxxer.hikari.HikariDataSource # 使用 Hikari 数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/user_db_2?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: Gepoint
+    # 分片规则
+    sharding:
+      defalut-data-source-name: pr_master
+      master-slave-rules:
+        pr_master:
+          name: master0slave0
+          master-data-source-name: master0
+          slave-data-source-names: slave0
+      tables:
+        #逻辑表的配置很重要，直接关系到路由是否能成功
+        #shardingsphere会根据sql语言类型使用对应的路由印象进行路由，而logicTable是路由的关键字段
+        t_user:
+          actual-data-nodes: pr_master.t_user_$->{0..1}
+          key-generate-strategy:
+            column: id
+            key-generator-name: snowflake
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm-expression: t_user_$->{id % 2}
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+            props:
+              worker.id: 123
+
+
+mybatis:
+  config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
+  mapper-locations: classpath:mapper/*.xml # 配置 Mapper XML 地址
+  type-aliases-package: com.simple.sharding.entity # 配置数据库实体包路径
