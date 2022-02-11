@@ -27,7 +27,7 @@ XXL-JOB is a distributed task scheduling framework, the core design goal is to d
 - 5.Task Failover: Deploy the Excutor cluster,tasks will be smooth to switch excuter when the strategy of the router choose ‘failover’;
 - 6.Consistency: "Dispatch Center" through the DB lock to ensure the consistency of cluster distributed scheduling,one task excuted for once;
 - 7.Custom task parameters: support online configuration scheduling tasks into the parameters, immediate effect;
-- 8.Scheduling thread pool: scheduling system multi-threaded trigger scheduling operation, to ensure accurate scheduling, not blocked;
+- 8.Scheduling thread pool: scheduling system httpclient-threaded trigger scheduling operation, to ensure accurate scheduling, not blocked;
 - 9.Elastic expansion capacity: once the new executor machine on the line or off the assembly line, the next time scheduling will be re-assigned tasks;
 - 10.Mail alarm: the task fails to support e-mail alarm, support configuring multiple email addresses to send bulk alert messages;
 - 11.Status monitoring: support real-time monitoring of the progress of the task;
@@ -473,7 +473,7 @@ The concret content of configuration file as follows:
     
     ### xxl.job.executor.appname is used to group by executors
     xxl.job.executor.appname=xxl-job-executor-sample
-    ### xxl.job.executor.ip :1,used to register with xxl-job-admin;2,xxl-job-admin dispatch task to executor through it;3,if it is blank executor will get ip automatically, multi network card need to be configured.
+    ### xxl.job.executor.ip :1,used to register with xxl-job-admin;2,xxl-job-admin dispatch task to executor through it;3,if it is blank executor will get ip automatically, httpclient network card need to be configured.
     xxl.job.executor.ip=
     ### xxl.job.executor.port :the port of the executor runned by,if multiple executor instance run on the same computer the port must different with each other
     xxl.job.executor.port=9999
@@ -565,7 +565,7 @@ On the log console,you can view task execution log on the executor immediately a
 
     - 执行器：the container where job executed in,it will be discovered automaticly if it has registered success when job was scheduled,and the job will be executed automaticly through this way.On the other side all tasks was grouped by this way.Tasks must be binded to a executor and it can be configured on "执行器管理"  page;
     - 描述：the decription of task
-    - 路由策略：when executors deployed as a cluster,it can configure multi route policys,include:
+    - 路由策略：when executors deployed as a cluster,it can configure httpclient route policys,include:
         FIRST（第一个）：default select the first executor;
         LAST（最后一个）：default select the last executor;
         ROUND（轮询）：round select the executor;；
@@ -835,7 +835,7 @@ business logic was executed on remote executor in XXL-JOB,schedule center just s
 the logic of task in XXL-JOB schedule center is very light and single job average run time alaways under 100ms,（most  is network time consume）.so it can use limited threads to support a large mount of job run concurrently, 10 threads configured above can support at least 100 JOB normal execution.
 
 #### 5.4.5 @DisallowConcurrentExecution
-This annotation is not used default by the schedule center of XXL-JOB schedule module, it use concurrent policy default,because RemoteHttpJobBean is common QuartzJobBean,so it greatly improve the capacity of schedule system and decrease the blocked chance of schedule module in the case of multi-threaded schedule.
+This annotation is not used default by the schedule center of XXL-JOB schedule module, it use concurrent policy default,because RemoteHttpJobBean is common QuartzJobBean,so it greatly improve the capacity of schedule system and decrease the blocked chance of schedule module in the case of httpclient-threaded schedule.
 
 Every schedule module was scheduled and executed parallel in XXL-JOB,but tasks in executor is executed serially and support stop task.
 
@@ -1187,7 +1187,7 @@ Tips: V1.3.x release has been published , enter the maintenance phase, branch  a
 ### 6.17 version V1.8.0 New features [2017-07-17]
 - 1、optimize update logic of task Cron，instead of rescheduleJob，at the same time preventing set cron repeatedly;
 - 2、optimize API callback service failed status code，facilitate troubleshooting;
-- 3、XxlJobLogger support multi-parameter;
+- 3、XxlJobLogger support httpclient-parameter;
 - 4、route policy add "忙碌转移" mode:Perform idle detection in sequence，The first idle test successfully machine is selected as the target executor and trigger schedule;
 - 5、reconstruct route policy code;
 - 6、fix executor repeat registration problem;
@@ -1212,7 +1212,7 @@ Tips: V1.3.x release has been published , enter the maintenance phase, branch  a
 
 ### 6.19 version V1.8.2 New features[Coding]
 - 1,support configuring the HTTPS for executor callback URL;
-- 2,Standardize project directory for extend multi executors;
+- 2,Standardize project directory for extend httpclient executors;
 - 3,add JFinal type executor sample project;
 
 ### TODO LIST
