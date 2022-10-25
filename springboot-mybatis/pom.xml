@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-mybatis</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-mybatis-plus</module>
+        <module>springboot-mybatis-simple</module>
+        <module>springboot-mybatis-tkmybatis</module>
+    </modules>
 
 
 </project>

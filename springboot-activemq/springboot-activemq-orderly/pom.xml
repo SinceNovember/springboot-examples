@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springboot-active-orderly</artifactId>
+    <artifactId>springboot-activemq-orderly</artifactId>
     <description>activemq 顺序消费</description>
 
 

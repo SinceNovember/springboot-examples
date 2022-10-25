@@ -10,6 +10,22 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-kafka</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>kafka-consumer-server</module>
+        <module>kafka-producer-server</module>
+        <module>springboot-kafka-ack</module>
+        <module>springboot-kafka-batch-consumer</module>
+        <module>springboot-kafka-batch-producer</module>
+        <module>springboot-kafka-broadcast</module>
+        <module>springboot-kafka-concurrency</module>
+        <module>springboot-kafka-orderly</module>
+        <module>springboot-kafka-retry</module>
+        <module>springboot-kafka-simple</module>
+        <module>springboot-kafka-transaction</module>
+        <module>springboot-kafka-flink-es</module>
+    </modules>
 
     <dependencies>
         <dependency>

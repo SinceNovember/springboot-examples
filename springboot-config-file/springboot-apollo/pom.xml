@@ -8,9 +8,18 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>springboot-apollo</artifactId>
+    <packaging>pom</packaging>
+
     <description>Apollo分布式配置</description>
+
+    <modules>
+        <module>springboot-apollo-auto-refresh</module>
+        <module>springboot-apollo-demo</module>
+        <module>springboot-apollo-jasypt</module>
+        <module>springboot-apollo-multi</module>
+    </modules>
+
 
 
 </project>

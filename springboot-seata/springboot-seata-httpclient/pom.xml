@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-seata-httpclient</artifactId>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>springboot-seata-httpclient-account-service</module>
+        <module>springboot-seata-httpclient-order-service</module>
+        <module>springboot-seata-httpclient-product-service</module>
+    </modules>
 
 </project>

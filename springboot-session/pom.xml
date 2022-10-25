@@ -12,7 +12,8 @@
     <artifactId>springboot-session</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>../springboot-session-redis</module>
+        <module>springboot-session-redis</module>
+        <module>springboot-session-security</module>
     </modules>
 
 

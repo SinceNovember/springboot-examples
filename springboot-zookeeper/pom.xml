@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-zookeeper</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-zookeeper-simple</module>
+    </modules>
 
 
 </project>

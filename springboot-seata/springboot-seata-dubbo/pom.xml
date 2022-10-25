@@ -10,6 +10,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-seata-dubbo</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-seata-dubbo-account-service</module>
+        <module>springboot-seata-dubbo-account-service-api</module>
+        <module>springboot-seata-dubbo-order-service</module>
+        <module>springboot-seata-dubbo-order-service-api</module>
+        <module>springboot-seata-dubbo-product-service</module>
+        <module>springboot-seata-dubbo-product-service-api</module>
+    </modules>
 
 
 </project>

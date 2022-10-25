@@ -11,4 +11,10 @@
 
     <artifactId>springboot-springsecurity</artifactId>
 
+    <modules>
+        <module>springboot-springsecurity-demo</module>
+        <module>springboot-springsecurity-demo-role</module>
+        <module>springboot-springsecurity-project</module>
+    </modules>
+
 </project>

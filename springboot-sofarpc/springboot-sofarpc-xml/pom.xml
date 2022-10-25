@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-sofarpc-xml</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>sofarpc-user-service-api</module>
+        <module>sofarpc-user-service-consumer</module>
+        <module>sofarpc-user-service-provider</module>
+    </modules>
 
 
 </project>

@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-hystrix</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>hystrix-demo</module>
+        <module>hystrix-user-service</module>
+        <module>springboot-hystrix-dubbo</module>
+    </modules>
 
 
 

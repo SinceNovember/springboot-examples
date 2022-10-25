@@ -11,6 +11,10 @@
 
     <artifactId>springboot-discovery</artifactId>
     <description>注册中心</description>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>springboot-discovery-nacos</module>
+    </modules>
 
 </project>

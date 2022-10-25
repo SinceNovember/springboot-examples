@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-dubbo</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-dubbo-annotations</module>
+        <module>springboot-dubbo-annotations-nacos</module>
+        <module>springboot-dubbo-annotations-sentinel</module>
+        <module>springboot-dubbo-xml</module>
+    </modules>
 
 
 </project>

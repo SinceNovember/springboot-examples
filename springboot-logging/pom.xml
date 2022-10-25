@@ -10,6 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-logging</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-logging-actuator</module>
+        <module>springboot-logging-aop</module>
+        <module>springboot-logging-log4j2</module>
+        <module>springboot-logging-logback</module>
+        <module>springboot-logging-multi-env</module>
+    </modules>
 
 
 </project>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springboot-active-demo</artifactId>
+    <artifactId>springboot-activemq-demo</artifactId>
     <description>activemq demo</description>
 
 

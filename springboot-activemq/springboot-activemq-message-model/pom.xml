@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springboot-active-message-model</artifactId>
+    <artifactId>springboot-activemq-message-model</artifactId>
     <description>activemq 集群和广播模式</description>
 
 

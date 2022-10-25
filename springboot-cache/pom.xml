@@ -9,11 +9,15 @@
         <groupId>com.simple</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-
     <groupId>com.simple</groupId>
     <artifactId>springboot-cache</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-cache-ehcache</module>
+        <module>springboot-cache-redis</module>
+    </modules>
 
 
 </project>

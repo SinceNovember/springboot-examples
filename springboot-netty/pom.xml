@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-netty</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-netty-client</module>
+        <module>springboot-netty-common</module>
+        <module>springboot-netty-server</module>
+    </modules>
 
 
 </project>

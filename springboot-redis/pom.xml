@@ -10,6 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-redis</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-redis-cluster</module>
+        <module>springboot-redis-jedis</module>
+        <module>springboot-redis-lock</module>
+        <module>springboot-redis-redisson</module>
+        <module>springboot-redis-sentinel</module>
+    </modules>
 
 
 </project>

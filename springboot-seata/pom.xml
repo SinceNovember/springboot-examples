@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-seata</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-seata-dubbo</module>
+        <module>springboot-seata-httpclient</module>
+        <module>springboot-seata-multiple-datasource</module>
+    </modules>
 
 
 </project>

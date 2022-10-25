@@ -3,6 +3,52 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>springboot-activemq</module>
+        <module>springboot-clickhouse</module>
+        <module>springboot-actuator</module>
+        <module>springboot-actuator-admin</module>
+        <module>springboot-cache</module>
+        <module>springboot-canal</module>
+        <module>springboot-config-file</module>
+        <module>springboot-custommvc</module>
+        <module>springboot-datasource</module>
+        <module>springboot-datasource-dynamic</module>
+        <module>springboot-datasource-sharding</module>
+        <module>springboot-db-doc</module>
+        <module>springboot-discovery</module>
+        <module>springboot-dubbo</module>
+        <module>springboot-elasticsearch</module>
+        <module>springboot-event</module>
+        <module>springboot-feign</module>
+        <module>springboot-grpc</module>
+        <module>springboot-hystrix</module>
+        <module>springboot-japidocs</module>
+        <module>springboot-job</module>
+        <module>springboot-jpa</module>
+        <module>springboot-kafka</module>
+        <module>springboot-logging</module>
+        <module>springboot-mybatis</module>
+        <module>springboot-netty</module>
+        <module>springboot-prometheus</module>
+        <module>springboot-rabbitmq</module>
+        <module>springboot-redis</module>
+        <module>springboot-register-center</module>
+        <module>springboot-resilience4j</module>
+        <module>springboot-rocketmq</module>
+        <module>springboot-seata</module>
+        <module>springboot-sentinel</module>
+        <module>springboot-session</module>
+        <module>springboot-shiro</module>
+        <module>springboot-sofarpc</module>
+        <module>springboot-springsecurity</module>
+        <module>springboot-springsecurity-oauth</module>
+        <module>springboot-springsecurity-oauth-store</module>
+        <module>springboot-springsecurity-sso</module>
+        <module>springboot-websocket</module>
+        <module>springboot-zookeeper</module>
+        <module>springboot-kafka/springboot-kafka-flink-es</module>
+    </modules>
 
 
     <parent>

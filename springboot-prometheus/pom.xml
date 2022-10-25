@@ -11,6 +11,7 @@
 
     <artifactId>springboot-prometheus</artifactId>
 
+
     <dependencies>
 
         <!-- 实现对 Actuator 的自动化配置 -->

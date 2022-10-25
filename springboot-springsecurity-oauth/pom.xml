@@ -15,6 +15,7 @@
         <module>springboot-springsecurity-oauth-authorization-type</module>
         <module>springboot-springsecurity-oauth-implicit-type</module>
         <module>springboot-springsecurity-oauth-client-type</module>
+        <module>springboot-springsecurity-oauth-password-type</module>
         <module>springboot-springsecurity-oauth-refresh-token</module>
     </modules>
 

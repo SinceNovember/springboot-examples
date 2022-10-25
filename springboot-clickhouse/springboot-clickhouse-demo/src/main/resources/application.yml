@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    click:
+      driverClassName: ru.yandex.clickhouse.ClickHouseDriver
+      url: jdbc:clickhouse://124.221.237.161:8123/test
+      password: mypassword
+      initialSize: 10
+      maxActive: 100
+      minIdle: 10
+      maxWait: 6000
+
+    order:
+      url: jdbc:mysql://124.221.237.161:3306/auto_sport?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+      driverClassName: com.mysql.jdbc.Driver
+      username: root
+      password: mypassword
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    lazy-loading-enabled: true
+    multiple-result-sets-enabled: true
+    use-generated-keys: true
+    default-statement-timeout: 60
+    default-fetch-size: 100
+  type-aliases-package: com.simple.clickhouse.demo.pojo

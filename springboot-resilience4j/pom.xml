@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-resilience4j</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-resilience4j-actuator</module>
+        <module>springboot-resilience4j-demo</module>
+        <module>user-resilience4j-service</module>
+    </modules>
 
 
 </project>

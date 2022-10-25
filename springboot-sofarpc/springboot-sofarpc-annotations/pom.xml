@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-sofarpc-annotations</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>sofarpc-user-service-api-02</module>
+        <module>sofarpc-user-service-consumer-02</module>
+        <module>sofarpc-user-service-provider-02</module>
+    </modules>
 
 
 </project>

@@ -9,6 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>springboot-feign</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>fegin-demo</module>
+        <module>user-service</module>
+    </modules>
 
 
 </project>

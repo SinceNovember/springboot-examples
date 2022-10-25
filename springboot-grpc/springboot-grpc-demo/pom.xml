@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-grpc-demo</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-grpc-demo-application</module>
+        <module>springboot-grpc-demo-user-service</module>
+        <module>springboot-grpc-demo-user-service-api</module>
+    </modules>
 
 
 </project>

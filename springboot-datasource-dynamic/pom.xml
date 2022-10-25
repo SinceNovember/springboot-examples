@@ -14,6 +14,7 @@
     <modules>
         <module>springboot-datasource-dynamic-baomidou-01</module>
         <module>springboot-datasource-dynamic-baomidou-separation</module>
+        <module>springboot-datasource-dynamic-sharding-jdbc</module>
         <module>springboot-datasource-dynamic-mybatis</module>
         <module>springboot-datasource-dynamic-jpa</module>
         <module>springboot-datasource-dynamic-sharding-jdbc-separation</module>

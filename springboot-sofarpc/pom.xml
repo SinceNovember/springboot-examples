@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-sofarpc</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-sofarpc-annotations</module>
+        <module>springboot-sofarpc-xml</module>
+    </modules>
 
 
 </project>

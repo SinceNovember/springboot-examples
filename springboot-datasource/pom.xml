@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>springboot-datasource-hikaricp</module>
+        <module>springboot-datasource-durid</module>
     </modules>
 
 

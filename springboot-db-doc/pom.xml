@@ -12,5 +12,10 @@
     <artifactId>springboot-db-doc</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>springboot-db-doc-screw-01</module>
+        <module>springboot-db-doc-screw-02</module>
+    </modules>
+
 
 </project>

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springboot-actuator-secruity</artifactId>
+    <artifactId>springboot-actuator-security</artifactId>
 
     <dependencies>
         <!-- 实现对 Actuator 的自动化配置 -->

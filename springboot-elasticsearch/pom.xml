@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>springboot-elasticsearch</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>springboot-elasticsearch-data-elasticsearch</module>
+        <module>springboot-elasticsearch-jest</module>
+        <module>springboot-elasticsearch-rest-client</module>
+    </modules>
 
 <!--    <dependencies>-->
 <!--        <dependency>-->
