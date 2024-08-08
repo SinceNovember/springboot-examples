@@ -48,6 +48,8 @@
         <module>springboot-websocket</module>
         <module>springboot-zookeeper</module>
         <module>springboot-kafka/springboot-kafka-flink-es</module>
+        <module>springboot-transaction</module>
+        <module>springboot-disruptor</module>
     </modules>
 
 
