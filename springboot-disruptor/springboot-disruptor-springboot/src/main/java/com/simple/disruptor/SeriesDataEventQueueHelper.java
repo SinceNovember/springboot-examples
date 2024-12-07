@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class SeriesDataEventQueueHelper extends BaseQueueHelper<SeriesData, SeriesDataEvent, SeriesDataEventHandler> implements InitializingBean {
+public class SeriesDataEventQueueHelper extends BaseQueueHelper<SeriesData, SeriesDataEvent, SeriesDataWorkHandler> implements InitializingBean {
 
     private static final int QUEUE_SIZE = 1024;
 
     @Autowired
-    private List<SeriesDataEventHandler> seriesDataEventHandler;
+    private List<SeriesDataWorkHandler> seriesDataEventHandler;
 
 
     @Override
@@ -31,7 +31,7 @@ public class SeriesDataEventQueueHelper extends BaseQueueHelper<SeriesData, Seri
     @Override
     protected WorkHandler[] getHandler() {
         int size = seriesDataEventHandler.size();
-        SeriesDataEventHandler[] paramEventHandlers =  seriesDataEventHandler.toArray(new SeriesDataEventHandler[size]);
+        SeriesDataWorkHandler[] paramEventHandlers =  seriesDataEventHandler.toArray(new SeriesDataWorkHandler[size]);
         return paramEventHandlers;
     }
 

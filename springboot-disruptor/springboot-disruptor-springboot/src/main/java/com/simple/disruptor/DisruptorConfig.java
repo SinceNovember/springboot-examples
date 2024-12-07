@@ -14,8 +14,8 @@ public class DisruptorConfig {
      * @return SeriesDataEventHandler
      */
     @Bean
-    public SeriesDataEventHandler smsParamEventHandler1() {
-        return new SeriesDataEventHandler();
+    public SeriesDataWorkHandler smsParamEventHandler1() {
+        return new SeriesDataWorkHandler();
     }
 
     /**
@@ -24,8 +24,8 @@ public class DisruptorConfig {
      * @return SeriesDataEventHandler
      */
     @Bean
-    public SeriesDataEventHandler smsParamEventHandler2() {
-        return new SeriesDataEventHandler();
+    public SeriesDataWorkHandler smsParamEventHandler2() {
+        return new SeriesDataWorkHandler();
     }
 
     /**
@@ -34,8 +34,8 @@ public class DisruptorConfig {
      * @return SeriesDataEventHandler
      */
     @Bean
-    public SeriesDataEventHandler smsParamEventHandler3() {
-        return new SeriesDataEventHandler();
+    public SeriesDataWorkHandler smsParamEventHandler3() {
+        return new SeriesDataWorkHandler();
     }
 
 
@@ -45,8 +45,8 @@ public class DisruptorConfig {
      * @return SeriesDataEventHandler
      */
     @Bean
-    public SeriesDataEventHandler smsParamEventHandler4() {
-        return new SeriesDataEventHandler();
+    public SeriesDataWorkHandler smsParamEventHandler4() {
+        return new SeriesDataWorkHandler();
     }
 
     /**
@@ -55,8 +55,8 @@ public class DisruptorConfig {
      * @return SeriesDataEventHandler
      */
     @Bean
-    public SeriesDataEventHandler smsParamEventHandler5() {
-        return new SeriesDataEventHandler();
+    public SeriesDataWorkHandler smsParamEventHandler5() {
+        return new SeriesDataWorkHandler();
     }
 
 
@@ -66,7 +66,7 @@ public class DisruptorConfig {
      * @return SeriesDataEventHandler
      */
     @Bean
-    public SeriesDataEventHandler smsParamEventHandler6() {
-        return new SeriesDataEventHandler();
+    public SeriesDataWorkHandler smsParamEventHandler6() {
+        return new SeriesDataWorkHandler();
     }
 }

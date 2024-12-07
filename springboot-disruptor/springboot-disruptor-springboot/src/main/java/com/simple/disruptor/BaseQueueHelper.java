@@ -56,6 +56,11 @@ public abstract class BaseQueueHelper<D, E extends ValueWrapper<D>, H extends Wo
      */
     protected abstract WorkHandler[] getHandler();
 
+    public EventHandler[] getEventHandlers() {
+        return new EventHandler[]{};
+    }
+
+
     /**
      * 初始化
      */
@@ -63,6 +68,24 @@ public abstract class BaseQueueHelper<D, E extends ValueWrapper<D>, H extends Wo
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("DisruptorThreadPool").build();
         disruptor = new Disruptor<E>(eventFactory(), getQueueSize(), namedThreadFactory, ProducerType.SINGLE, getStrategy());
         disruptor.setDefaultExceptionHandler(new MyHandlerException());
+        /**
+         * 独立消费者
+         * 生产者生产20条消息，由两个消费者各自独立消费20条，两者加起共40
+         * 调用handleEventsWith，表示创建的多个消费者，每个都是独立消费的
+         * 可以定义不同的消费者处理器，也可使用相同的处理器。
+         * 实际场景中应该多数使用不同的处理器，因为正常来讲独立消费者做的应该是不同的事。
+         * 所以本例中是定义了两个不同的消费者DisruptorEventIndHandler0和DisruptorEventIndHandler1
+         */
+//        disruptor.handleEventsWith(getEventHandlers());
+
+        /**
+         * 共同消费者
+         * 生产者生产20条消息，由两个消费者共同消费，两者加起共20
+         * 调用handleEventsWithWorkerPool，表示创建的多个消费者以共同消费的模式消费；
+         * 单个消费者时可保证其有序性，多个时无法保证其顺序；
+         * 或者说每个消费者是有序的，但每个消费者间是并行执行的，所以无法保证整体的有序
+         * 共同消费者做的应该是同个事，所以本例中只定义了一个共同消费者DisruptorEventCommHandler
+         */
         disruptor.handleEventsWithWorkerPool(getHandler());
         ringBuffer = disruptor.start();
 
