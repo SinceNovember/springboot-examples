@@ -9,8 +9,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>springboot-netty-heartbeat-reconnect-prod</artifactId>
+    <artifactId>springboot-netty-idle-prod</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>springboot-netty-idle-prod-server</module>
+        <module>springboot-netty-idle-prod-client</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

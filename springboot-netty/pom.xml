@@ -14,7 +14,7 @@
 
     <modules>
         <module>springboot-netty-examples</module>
-        <module>springboot-netty-heartbeat-reconnect-prod</module>
+        <module>springboot-netty-idle-prod</module>
     </modules>
 
     <dependencies>
