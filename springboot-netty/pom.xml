@@ -13,10 +13,18 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>springboot-netty-client</module>
-        <module>springboot-netty-common</module>
-        <module>springboot-netty-server</module>
+        <module>springboot-netty-examples</module>
+        <module>springboot-netty-heartbeat-reconnect-prod</module>
     </modules>
+
+    <dependencies>
+        <!-- Netty 依赖 -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.50.Final</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
