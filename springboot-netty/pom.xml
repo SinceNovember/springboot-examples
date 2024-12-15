@@ -15,6 +15,7 @@
     <modules>
         <module>springboot-netty-examples</module>
         <module>springboot-netty-idle-prod</module>
+        <module>springboot-netty-prod</module>
     </modules>
 
     <dependencies>
