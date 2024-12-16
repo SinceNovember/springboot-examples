@@ -1,13 +1,22 @@
 package com.simple.netty.prod.server.acceptor;
 
+import com.simple.netty.common.Message;
+import com.simple.netty.common.serializer.SerializerHolder;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.EventLoopGroup;
+import io.netty.handler.codec.MessageToByteEncoder;
+import io.netty.handler.codec.ReplayingDecoder;
 import jdk.internal.net.http.websocket.MessageEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.SocketAddress;
+import java.util.List;
 import java.util.concurrent.ThreadFactory;
+import static com.simple.netty.common.NettyCommonProtocol.MAGIC;
 
 /**
  * 基本的常用的netty Server配置

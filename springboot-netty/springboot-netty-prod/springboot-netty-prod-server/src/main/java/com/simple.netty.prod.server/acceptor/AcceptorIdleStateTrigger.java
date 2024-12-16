@@ -17,13 +17,11 @@ public class AcceptorIdleStateTrigger extends ChannelInboundHandlerAdapter {
         if (evt instanceof IdleStateEvent) {
             IdleState state = ((IdleStateEvent) evt).state();
             if (state == IdleState.READER_IDLE) {
-                logger.error("occor exception");
+                logger.error("occur exception");
                 throw new Exception("NO SIGNAL");
             }
         } else {
             super.userEventTriggered(ctx, evt);
         }
     }
-
-
 }
