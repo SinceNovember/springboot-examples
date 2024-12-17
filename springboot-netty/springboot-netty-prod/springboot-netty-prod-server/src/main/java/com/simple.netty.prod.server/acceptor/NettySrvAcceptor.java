@@ -21,8 +21,6 @@ import static io.netty.util.internal.SocketUtils.bind;
 
 public abstract class NettySrvAcceptor implements SrvAcceptor{
 
-    private static final Logger logger = LoggerFactory.getLogger(NettySrvAcceptor.class);
-
     public static final int AVAILABLE_PROCESSORS = Runtime.getRuntime().availableProcessors();
 
     protected final SocketAddress localAddress;
@@ -30,18 +28,8 @@ public abstract class NettySrvAcceptor implements SrvAcceptor{
     private ServerBootstrap bootstrap;
     private EventLoopGroup boss;
     private EventLoopGroup worker;
-    private int nWorkers;
+    private final int nWorkers;
     protected volatile ByteBufAllocator allocator;
-
-    protected final HashedWheelTimer timer = new HashedWheelTimer(new ThreadFactory() {
-
-        private AtomicInteger threadIndex = new AtomicInteger(0);
-
-        @Override
-        public Thread newThread(Runnable runnable) {
-
-            return new Thread(runnable, "NettySrvAcceptorExecutor_" + this.threadIndex.incrementAndGet());        }
-    });
 
     public NettySrvAcceptor(SocketAddress localAddress) {
         this(localAddress, AVAILABLE_PROCESSORS << 1);
@@ -78,11 +66,24 @@ public abstract class NettySrvAcceptor implements SrvAcceptor{
 
     public void start(boolean sync) throws InterruptedException {
         ChannelFuture future = bind(localAddress).sync();
-        logger.info("netty acceptor server start");
+        System.out.println("netty acceptor server start");
 
         if (sync) {
             future.channel().closeFuture().sync();
         }
+    }
+
+    public SocketAddress localAddress() {
+        return localAddress;
+    }
+
+    protected ServerBootstrap bootstrap() {
+        return bootstrap;
+    }
+
+    public void shutdownGracefully() {
+        boss.shutdownGracefully().awaitUninterruptibly();
+        worker.shutdownGracefully().awaitUninterruptibly();
     }
 
 

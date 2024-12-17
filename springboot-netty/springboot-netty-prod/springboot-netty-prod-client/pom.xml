@@ -21,6 +21,7 @@
         <dependency>
             <groupId>com.simple</groupId>
             <artifactId>springboot-netty-prod-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

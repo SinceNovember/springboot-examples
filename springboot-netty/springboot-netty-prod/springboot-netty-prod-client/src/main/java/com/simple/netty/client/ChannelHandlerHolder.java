@@ -1,4 +1,4 @@
-package com.simple.netty.prod.server;
+package com.simple.netty.client;
 
 import io.netty.channel.ChannelHandler;
 

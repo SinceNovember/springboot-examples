@@ -11,12 +11,10 @@ import org.slf4j.LoggerFactory;
 @ChannelHandler.Sharable
 public class MessageHandler extends SimpleChannelInboundHandler<Message> {
 
-    private static final Logger logger = LoggerFactory.getLogger(MessageHandler.class);
-
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
         Channel channel = ctx.channel();
-        logger.info(msg.toString());
+        System.out.println(msg.toString());
         channel.writeAndFlush(new Acknowledge(msg.sequence()))
                 .addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
     }
