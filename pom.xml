@@ -51,7 +51,6 @@
         <module>springboot-transaction</module>
         <module>springboot-disruptor</module>
         <module>springboot-timewheel</module>
-        <module>springboot-netty-idle-prod-client</module>
     </modules>
 
 
